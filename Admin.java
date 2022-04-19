@@ -52,6 +52,14 @@ public class Admin {
             System.out.println("File Not Found");
         }
     }
+    public static void listEmployeeNames() {
+        Scanner employeeNum = new Scanner(System.in);
+        System.out.println("Which employee would you like to select?");
+        for(Employee employee : employeeList) {
+            System.out.println(employee.getEmployeeLName() + ", " + employee.getEmployeeFName());
+        }
+        int adminInput = employeeNum.nextInt();
+    }
 
     public void setRating() {
 
@@ -80,10 +88,10 @@ public class Admin {
                       updateEmployeeList();
                       break;
                   case 4:
-
+                    listEmployeeNames();
                       break;
                   case 5:
-
+                    listEmployeeNames();
                       break;
                   case 6:
                       System.exit(-1);
