@@ -22,6 +22,13 @@ public class Customer {
 
 
     }
+    public void pause(double waitTime) {
+        try {
+            Thread.sleep((int)(waitTime * 1000.0D));
+        } catch (InterruptedException ignored) {
+        }
+
+    }
     public void listEmployees() {
         try {
             Scanner input = new Scanner(new File("EmployeeList"));
@@ -33,6 +40,8 @@ public class Customer {
                 employees.add(newEmployee);
                 input.nextLine();
                 input.nextLine();
+
+                System.out.println(firstName + " " + lastName);
             }
         } catch (FileNotFoundException e) {
             System.out.println("File Not Found");

@@ -66,8 +66,18 @@ public class Main {
             String customerName = input.nextLine();
             System.out.println("Greetings, " + customerName + ".  Please select an employee you wish to review:");
             Customer c1 = new Customer();
+
             try {
+                c1.pause(1D);
+                System.out.print(".");
+                c1.pause(1D);
+                System.out.print(".");
+                c1.pause(1D);
+                System.out.println(".");
+                c1.pause(1D);
+                c1.listEmployees();
                 c1.WriteReview();
+
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
