@@ -27,9 +27,7 @@ public class Main {
 
         button = new JButton("Login");
         button.addActionListener(new LoginButton());
-        button.addActionListener(f -> {
-            frame.dispose();
-        });
+
         customerButton = new JButton("Customer");
         customerButton.addActionListener(new CustomerButton());
         customerButton.addActionListener(e ->  {
@@ -96,6 +94,9 @@ public class Main {
             Admin a1 = new Admin();
             String userName = textField.getText();
             String passWord = passField.getText();
+            button.addActionListener(f -> {
+                frame.dispose();
+            });
             if (userName.equals(Admin.getAdminUsername()) && passWord.equals(Admin.getAdminPassword())) {
 
                 JOptionPane.showMessageDialog(null, "Access Granted"); //test to make sure button is working
