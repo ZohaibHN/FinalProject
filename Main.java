@@ -66,7 +66,7 @@ public class Main {
             System.out.print("Enter Name: ");
             String customerName = input.nextLine();
 
-            System.out.println("Greetings, " + customerName + ".  Please select an employee you wish to review:");
+            System.out.print("Greetings, " + customerName + ".  Please select an employee you wish to review:");
 
             Customer c1 = new Customer();
 
