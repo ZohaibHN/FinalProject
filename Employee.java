@@ -6,6 +6,9 @@ public class Employee {
     private String employeeID;
     private int employeeRating;
     private ArrayList<String> ratings;
+    /**grab all info from the certain employee and make that in a single list instance
+     *
+     */
     public Employee(String employeeFName, String employeeLName, String employeeID, int employeeRating) {
         this.employeeFName = employeeFName;
         this.employeeLName = employeeLName;
