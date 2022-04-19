@@ -20,4 +20,13 @@ public class Customer {
         }
 
     }
+    public static void main(String[] args) throws FileNotFoundException {
+        Scanner input = new Scanner(new File("EmployeeList"));
+
+        while(input.hasNext()) {
+            String firstName = input.nextLine();
+
+            System.out.println(firstName);
+        }
+    }
 }
