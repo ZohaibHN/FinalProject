@@ -7,7 +7,7 @@ public class Employee  {
     private int employeeRating;
     private ArrayList<String> ratings;
 
-    /**grab all info from the certain employee and make that in a single list instance
+    /**grab all information from the certain employee and make that in a single list instance
      *
      */
     public Employee(String employeeFName, String employeeLName, int employeeID)  {
