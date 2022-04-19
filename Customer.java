@@ -8,7 +8,7 @@ public class Customer {
         try (FileWriter fw = new FileWriter("Reviews.txt", true);
              BufferedWriter bw = new BufferedWriter(fw);
              PrintWriter out = new PrintWriter(bw)) {
-            new FileWriter("Reviews.txt", false).close();
+            //new FileWriter("Reviews.txt", false).close();
             System.out.print("Enter your review: ");
             String customerReview = reviewInput.nextLine();
             out.println(customerReview + "| Rating for Employee ID: " + employees.get(employeeNum - 1).getEmployeeID());
