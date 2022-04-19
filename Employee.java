@@ -29,7 +29,7 @@ public class Employee  {
             }
 
         }
-        }
+    }
 
     public String getEmployeeFName() {
         return employeeFName;
