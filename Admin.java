@@ -1,11 +1,12 @@
 import java.util.*;
 import java.io.*;
+import java.io.FileNotFoundException;
 public class Admin {
     private static final String ADMIN_USERNAME = "p131759";
     private static final String ADMIN_PASSWORD = "UMW.42972";
     private int employeeRating;
 
-    public void createEmployee() {
+    public static void createEmployee() {
         Scanner scnr = new Scanner(System.in);
         System.out.println("Enter employee information:\n");
         String inputFName = scnr.nextLine();
@@ -16,11 +17,30 @@ public class Admin {
         System.out.println("Employee has been created");
 
     }
+    public static void listEmployees() {
+        try {
+            Scanner input = new Scanner(new File("EmployeeList"));
+            while (input.hasNextLine()) {
+                String firstName = input.nextLine();
+                String lastName = input.nextLine();
+                int employeeID = Integer.parseInt(input.nextLine());
+                input.nextLine();
+                input.nextLine();
+                System.out.println(firstName);
+                System.out.println(lastName);
+                System.out.println(employeeID);
+                System.out.println();
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File Not Found");
+        }
+    }
 
     public void setRating() {
 
     }
-    public void menuOptions() {
+    //public void menuOptions()
+      public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("What would you like to do?");
         System.out.println();
@@ -35,7 +55,7 @@ public class Admin {
                 createEmployee();
                 break;
             case 2:
-
+                listEmployees();
                 break;
             case 3:
 
