@@ -5,7 +5,7 @@ public class Admin {
     private static final String ADMIN_PASSWORD = "UMW.42972";
     private int employeeRating;
 
-    public void createEmployee() throws FileNotFoundException {
+    public void createEmployee() {
         Scanner scnr = new Scanner(System.in);
         System.out.println("Enter employee information:\n");
         String inputFName = scnr.nextLine();
@@ -30,6 +30,22 @@ public class Admin {
         System.out.println("4. Rate Employees");
         System.out.println("5. Exit");
         int adminNum = input.nextInt();
+        switch (adminNum) {
+            case 1:
+                createEmployee();
+                break;
+            case 2:
+
+                break;
+            case 3:
+
+                break;
+            case 4:
+
+                break;
+            case 5:
+                System.exit(-1);
+        }
     }
 
 }
