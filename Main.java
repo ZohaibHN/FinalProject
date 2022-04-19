@@ -62,9 +62,13 @@ public class Main {
         public void actionPerformed(ActionEvent e) {
 
             Scanner input = new Scanner(System.in);
+
+
             System.out.print("Enter Name: ");
             String customerName = input.nextLine();
+
             System.out.println("Greetings, " + customerName + ".  Please select an employee you wish to review:");
+
             Customer c1 = new Customer();
 
             try {
@@ -76,7 +80,8 @@ public class Main {
                 System.out.println(".");
                 c1.pause(1D);
                 c1.listEmployees();
-                c1.WriteReview();
+                int selectEmployee = input.nextInt();
+                c1.WriteReview(selectEmployee);
 
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
