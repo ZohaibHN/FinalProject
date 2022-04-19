@@ -27,7 +27,7 @@ public class Main {
 
         button = new JButton("Login");
         button.addActionListener(new LoginButton());
-        button.addActionListener(e -> {
+        button.addActionListener(f -> {
             frame.dispose();
         });
         customerButton = new JButton("Customer");
@@ -97,7 +97,9 @@ public class Main {
             String userName = textField.getText();
             String passWord = passField.getText();
             if (userName.equals(Admin.getAdminUsername()) && passWord.equals(Admin.getAdminPassword())) {
+
                 JOptionPane.showMessageDialog(null, "Access Granted"); //test to make sure button is working
+
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrect username/password."); //incorrect username/password
             }
