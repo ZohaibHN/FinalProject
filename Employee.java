@@ -6,18 +6,17 @@ public class Employee  {
     private int employeeID;
     private int employeeRating;
     private ArrayList<String> ratings;
-    FileReader employeeIn = new FileReader("EmployeeList");
-    Scanner sin = new Scanner(employeeIn);
+
     /**grab all info from the certain employee and make that in a single list instance
      *
      */
-    public Employee(String employeeFName, String employeeLName, int employeeID) throws FileNotFoundException {
+    public Employee(String employeeFName, String employeeLName, int employeeID)  {
         this.employeeFName = employeeFName;
         this.employeeLName = employeeLName;
         this.employeeID = employeeID;
         this.employeeRating = 0;
     }
-    public Employee(Scanner employeeScanner) throws FileNotFoundException {
+    public Employee(Scanner employeeScanner)  {
         this.employeeFName = employeeScanner.nextLine();
         this.employeeLName = employeeScanner.nextLine();
         this.employeeID = employeeScanner.nextInt();
