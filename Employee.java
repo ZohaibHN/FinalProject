@@ -13,7 +13,6 @@ public class Employee {
         this.employeeFName = employeeFName;
         this.employeeLName = employeeLName;
         this.employeeID = employeeID;
-
     }
     public Employee(Scanner employeeScanner) {
         this.employeeFName = employeeScanner.nextLine();
