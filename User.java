@@ -2,11 +2,19 @@ import java.util.*;
 import java.io.*;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-public class Admin {
+public class User {
     private static final String ADMIN_USERNAME = "p131759";
     private static final String ADMIN_PASSWORD = "UMW.42972";
     private static ArrayList<Employee> employeeList = new ArrayList<Employee>();
     private int employeeRating;
+
+    public static String getAdminUsername() {
+        return ADMIN_USERNAME;
+    }
+
+    public static String getAdminPassword() {
+        return ADMIN_PASSWORD;
+    }
 
     public static void createEmployee() {
         Scanner scnr = new Scanner(System.in);
@@ -60,12 +68,33 @@ public class Admin {
         }
         int adminInput = employeeNum.nextInt();
     }
+    public static void employeeReview(int ID) {
+        try {
+            Scanner reader = new Scanner(new File("Reviews.txt"));
+            while(reader.hasNext()) {
+                try {
+                    int fileID = Integer.parseInt(reader.nextLine());
+                    String review = reader.nextLine();
+
+                    if (fileID == ID) {
+                        System.out.println(review);
+                    }
+                    reader.nextLine();
+                } catch (Exception f) {
+                    System.out.println();
+                    System.out.println("Bottom of page");
+                }
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File Not Found");
+        }
+    }
 
     public void setRating() {
 
     }
     //public void menuOptions()
-      public static void main(String[] args) {
+      public static void adminMenu() {
           while (true) {
               Scanner input = new Scanner(System.in);
               System.out.println("What would you like to do?");
@@ -98,11 +127,23 @@ public class Admin {
               }
           }
       }
-    public static String getAdminUsername() {
-        return ADMIN_USERNAME;
-    }
+      public static void employeeMenu() {
+        Scanner input = new Scanner(System.in);
+            System.out.println("1. View Employee Reviews");
+            System.out.println("2. Exit");
+            System.out.print("What would you like to do?: ");
+            int userInput = input.nextInt();
+            switch(userInput) {
+                case 1:
+                    System.out.print("Enter Employee ID: ");
+                    int employeeID = input.nextInt();
+                    employeeReview(employeeID);
+                    break;
+                case 2:
+                    System.exit(-1);
+                    break;
+            }
 
-    public static String getAdminPassword() {
-        return ADMIN_PASSWORD;
-    }
+
+      }
 }

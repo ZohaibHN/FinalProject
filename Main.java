@@ -12,6 +12,7 @@ public class Main {
     JLabel passLabel;
     JTextField passField;
     JButton button, customerButton;
+    User user = new User();
 
 
     public Main() {
@@ -91,15 +92,20 @@ public class Main {
     class LoginButton implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            Admin a1 = new Admin();
             String userName = textField.getText();
             String passWord = passField.getText();
 
-            if (userName.equals(Admin.getAdminUsername()) && passWord.equals(Admin.getAdminPassword())) {
+            if (userName.equals(user.getAdminUsername()) && passWord.equals(user.getAdminPassword())) {
                 frame.dispose();
-                JOptionPane.showMessageDialog(null, "Access Granted"); //test to make sure button is working
+                JOptionPane.showMessageDialog(null, "Access Granted: Welcome Admin");//test to make sure button is working
+                user.adminMenu();
 
-            } else {
+            } else if ((userName.equals("employee") || userName.equals("Employee")) && passWord.equals("123456")) {
+                frame.dispose();
+                JOptionPane.showMessageDialog(null, "Access Granted: Welcome Employee");
+                user.employeeMenu();
+            }
+            else {
                 JOptionPane.showMessageDialog(null, "Incorrect username/password.");//incorrect username/password
                 textField.setText("");
                 passField.setText("");
