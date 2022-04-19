@@ -97,7 +97,7 @@ public class Main {
             String userName = textField.getText();
             String passWord = passField.getText();
             if (userName.equals(Admin.getAdminUsername()) && passWord.equals(Admin.getAdminPassword())) {
-                JOptionPane.showMessageDialog(null, "Correct"); //test to make sure button is working
+                JOptionPane.showMessageDialog(null, "Access Granted"); //test to make sure button is working
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrect username/password."); //incorrect username/password
             }
