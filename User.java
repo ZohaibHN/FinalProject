@@ -116,23 +116,12 @@ public class User {
               System.out.println("6. Exit");
               int adminNum = input.nextInt();
               switch (adminNum) {
-                  case 1:
-                      createEmployee();
-                      break;
-                  case 2:
-                      listEmployees();
-                      break;
-                  case 3:
-                      updateEmployeeList();
-                      break;
-                  case 4:
-                    listEmployeeNames();
-                      break;
-                  case 5:
-                    listEmployeeNames();
-                      break;
-                  case 6:
-                      System.exit(-1);
+                  case 1 -> createEmployee();
+                  case 2 -> listEmployees();
+                  case 3 -> updateEmployeeList();
+                  case 4 -> listEmployeeNames();
+                  case 5 -> listEmployeeNames(); //rateEmployees();
+                  case 6 -> System.exit(-1);
               }
           }
       }
