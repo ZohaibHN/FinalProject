@@ -100,7 +100,9 @@ public class Main {
                 JOptionPane.showMessageDialog(null, "Access Granted"); //test to make sure button is working
 
             } else {
-                JOptionPane.showMessageDialog(null, "Incorrect username/password."); //incorrect username/password
+                JOptionPane.showMessageDialog(null, "Incorrect username/password.");//incorrect username/password
+                textField.setText("");
+                passField.setText("");
             }
         }
     }
