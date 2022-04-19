@@ -63,6 +63,7 @@ public class Main {
             Scanner input = new Scanner(System.in);
             System.out.print("Enter Name: ");
             String customerName = input.nextLine();
+            System.out.println("Greetings, " + customerName + ".  Please select an employee you wish to review:");
             //Customer newCustomer = new Customer(customerName);
             //newCustomer.Menu(); //test code to make sure a method is called
         }
