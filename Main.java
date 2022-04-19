@@ -78,9 +78,10 @@ public class Main {
     class LoginButton implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            Admin a1 = new Admin();
             String userName = textField.getText();
             String passWord = passField.getText();
-            if (userName.equals("p131759") && passWord.equals("UMW.42972")) {
+            if (userName.equals(Admin.getAdminUsername()) && passWord.equals(Admin.getAdminPassword())) {
                 JOptionPane.showMessageDialog(null, "Correct"); //test to make sure button is working
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrect username/password."); //incorrect username/password
