@@ -11,7 +11,9 @@ public class Admin {
         String inputFName = scnr.nextLine();
         String inputLName = scnr.nextLine();
         String inputID = scnr.nextLine();
-        int inputRating = 0;
+
+        Employee newEmployee = new Employee(inputFName, inputLName, inputID);
+        System.out.println("Employee has been created");
 
     }
 
