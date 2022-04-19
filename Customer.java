@@ -7,6 +7,7 @@ public class Customer {
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter out = new PrintWriter(bw))
         {
+            new FileWriter("Reviews.txt", false).close();
             out.println("Very nice attitude and helpful!");
             out.println("Always put on a smile.  Never seems like they are in a bad mood!");
             out.println("Seemed a little upset when I asked for help.");
