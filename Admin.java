@@ -67,5 +67,11 @@ public class Admin {
                 System.exit(-1);
         }
     }
+    public static String getAdminUsername() {
+        return ADMIN_USERNAME;
+    }
 
+    public static String getAdminPassword() {
+        return ADMIN_PASSWORD;
+    }
 }

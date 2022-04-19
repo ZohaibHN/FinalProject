@@ -3,18 +3,6 @@ import java.io.*;
 public class Customer {
     public void WriteReview() throws IOException {
         Scanner reviewInput = new Scanner(System.in);
-        Scanner input = new Scanner(new File("EmployeeList"));
-        while (input.hasNextLine()) {
-            String firstName = input.nextLine();
-            String lastName = input.nextLine();
-            int employeeID = Integer.parseInt(input.nextLine());
-            input.nextLine();
-            input.nextLine();
-            System.out.println(firstName);
-            System.out.println(lastName);
-            System.out.println(employeeID);
-            System.out.println();
-        }
         try (FileWriter fw = new FileWriter("Reviews.txt", true);
              BufferedWriter bw = new BufferedWriter(fw);
              PrintWriter out = new PrintWriter(bw)) {
@@ -33,6 +21,17 @@ public class Customer {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-
+        Scanner input = new Scanner(new File("EmployeeList"));
+        while (input.hasNextLine()) {
+            String firstName = input.nextLine();
+            String lastName = input.nextLine();
+            int employeeID = Integer.parseInt(input.nextLine());
+            input.nextLine();
+            input.nextLine();
+            System.out.println(firstName);
+            System.out.println(lastName);
+            //System.out.println(employeeID);
+            System.out.println();
+        }
     }
 }
