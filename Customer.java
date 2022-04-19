@@ -6,10 +6,10 @@ public class Customer {
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter out = new PrintWriter(bw))
         {
-            out.println("the text");
-            //more code
-            out.println("more text");
-            //more code
+            out.println("Very nice attitude and helpful!");
+            out.println("Always put on a smile.  Never seems like they are in a bad mood!");
+            out.println("Seemed a little upset when I asked for help.");
+            out.println("Had the vibe that they didn't want to be at work.");
         } catch (IOException e) {
             //exception handling left as an exercise for the reader
         }
