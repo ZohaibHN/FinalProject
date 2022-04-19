@@ -60,14 +60,23 @@ public class User {
             System.out.println("File Not Found");
         }
     }
+
     public static void listEmployeeNames() {
         Scanner employeeNum = new Scanner(System.in);
         System.out.println("Which employee would you like to select?");
-        for(Employee employee : employeeList) {
-            System.out.println(employee.getEmployeeLName() + ", " + employee.getEmployeeFName());
-        }
-        int adminInput = employeeNum.nextInt();
+        int i = 0;
+            for (Employee employee : employeeList) {
+
+                System.out.println("[" + i + "] " + employee.getEmployeeLName() + ", " + employee.getEmployeeFName());
+                i++;
+            }
+
+            int adminInput = employeeNum.nextInt();
+
+            System.out.println(adminInput + ": " + employeeList.get(adminInput));
+
     }
+
     public static void employeeReview(int ID) {
         try {
             Scanner reader = new Scanner(new File("Reviews.txt"));
