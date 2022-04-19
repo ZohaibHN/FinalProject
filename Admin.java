@@ -10,7 +10,7 @@ public class Admin {
         System.out.println("Enter employee information:\n");
         String inputFName = scnr.nextLine();
         String inputLName = scnr.nextLine();
-        String inputID = scnr.nextLine();
+        int inputID = scnr.nextInt();
 
         Employee newEmployee = new Employee(inputFName, inputLName, inputID);
         System.out.println("Employee has been created");
