@@ -1,18 +1,15 @@
 import java.util.*;
 import java.io.*;
 public class Admin {
-    private String adminFirstName;
-    private String adminLastName;
-    private String adminAuthenticationNumber;
+    private String adminUsername;
+    private String adminPassword;
+
     private int employeeRating;
-    public Admin(String adminAuthenticationNumber) {
-        this.adminAuthenticationNumber = adminAuthenticationNumber;
+    public Admin(String adminUsername, String adminPassword) {
+        this.adminUsername = adminUsername;
+        this.adminPassword = adminPassword;
     }
-    public void save(PrintWriter savePWriter) {
-        savePWriter.println(this.adminFirstName);
-        savePWriter.println(this.adminLastName);
-        savePWriter.println(this.adminAuthenticationNumber);
-    }
+
     public void setRating() {
 
     }
