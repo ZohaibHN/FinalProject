@@ -27,5 +27,8 @@ public class Employee  {
     public int getEmployeeID() {
         return employeeID;
     }
+    public void addRating(String rating) {
+        ratings.add(rating);
+    }
 
 }
