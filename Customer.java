@@ -11,7 +11,7 @@ public class Customer {
             new FileWriter("Reviews.txt", false).close();
             System.out.print("Enter your review: ");
             String customerReview = reviewInput.nextLine();
-            out.println(customerReview);
+            out.println(customerReview + "| Rating for Employee ID: " + employees.get(employeeNum - 1).getEmployeeID());
             employees.get(employeeNum-1).addRating(customerReview);
         } catch (IOException e) {
             //exception handling left as an exercise for the reader
