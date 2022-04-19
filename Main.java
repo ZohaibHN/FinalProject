@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.io.IOException;
 import java.util.Scanner;
 
 
@@ -64,7 +65,13 @@ public class Main {
             System.out.print("Enter Name: ");
             String customerName = input.nextLine();
             System.out.println("Greetings, " + customerName + ".  Please select an employee you wish to review:");
-            //Customer newCustomer = new Customer(customerName);
+            Customer c1 = new Customer();
+            try {
+                c1.WriteReview();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+
             //newCustomer.Menu(); //test code to make sure a method is called
         }
     }
@@ -80,7 +87,8 @@ public class Main {
             }
         }
     }
-    public static void main(String args[]) {
+
+    public static void main(String args[]) throws IOException {
         Main window = new Main();
         window.getFrame().setSize(400, 150);
         window.getFrame().setVisible(true);
