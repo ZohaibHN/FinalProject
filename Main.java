@@ -75,7 +75,7 @@ public class Main {
             if (userName.equals("p131759") && passWord.equals("UMW.42972")) {
                 JOptionPane.showMessageDialog(null, "Correct"); //test to make sure button is working
             } else {
-                JOptionPane.showMessageDialog(null, "Incorrect username/password.");
+                JOptionPane.showMessageDialog(null, "Incorrect username/password."); //incorrect username/password
             }
         }
     }

@@ -30,4 +30,8 @@ public class Employee {
     public String getEmployeeID() {
         return employeeID;
     }
+    public static void main(String[] args) {
+        Scanner scnr = new Scanner("EmployeeList.txt");
+        Employee e1 = new Employee(scnr);
+    }
 }
