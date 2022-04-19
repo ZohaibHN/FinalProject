@@ -94,11 +94,9 @@ public class Main {
             Admin a1 = new Admin();
             String userName = textField.getText();
             String passWord = passField.getText();
-            button.addActionListener(f -> {
-                frame.dispose();
-            });
-            if (userName.equals(Admin.getAdminUsername()) && passWord.equals(Admin.getAdminPassword())) {
 
+            if (userName.equals(Admin.getAdminUsername()) && passWord.equals(Admin.getAdminPassword())) {
+                frame.dispose();
                 JOptionPane.showMessageDialog(null, "Access Granted"); //test to make sure button is working
 
             } else {
