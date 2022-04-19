@@ -4,16 +4,16 @@ public class Employee {
     private String employeeFName;
     private String employeeLName;
     private String employeeID;
-    private int employeeRating;
+    private int employeeRating = 0;
     private ArrayList<String> ratings;
     /**grab all info from the certain employee and make that in a single list instance
      *
      */
-    public Employee(String employeeFName, String employeeLName, String employeeID, int employeeRating) {
+    public Employee(String employeeFName, String employeeLName, String employeeID) {
         this.employeeFName = employeeFName;
         this.employeeLName = employeeLName;
         this.employeeID = employeeID;
-        this.employeeRating = employeeRating;
+
     }
     public Employee(Scanner employeeScanner) {
         this.employeeFName = employeeScanner.nextLine();
