@@ -71,7 +71,7 @@ public class Main {
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
-            //Customer newCustomer = new Customer(customerName);
+
             //newCustomer.Menu(); //test code to make sure a method is called
         }
     }
