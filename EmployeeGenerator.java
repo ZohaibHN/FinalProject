@@ -1,5 +1,5 @@
 import java.util.*;
 public class EmployeeGenerator {
-    private ArrayList<Employee> employees = new ArrayList<>();
+    private ArrayList<Employee> employees;
 
 }
