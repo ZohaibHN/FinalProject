@@ -20,5 +20,16 @@ public class Admin {
     public void setRating() {
 
     }
+    public void menuOptions() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("What would you like to do?");
+        System.out.println();
+        System.out.println("1. Create new employee.");
+        System.out.println("2. List employees.");
+        System.out.println("3. View Employee Reviews");
+        System.out.println("4. Rate Employees");
+        System.out.println("5. Exit");
+        int adminNum = input.nextInt();
+    }
 
 }
