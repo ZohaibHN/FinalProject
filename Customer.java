@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 public class Customer {
-    public static void main(String args[]) throws IOException {
+    public void WriteReview() throws IOException {
         try(FileWriter fw = new FileWriter("Reviews.txt", true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter out = new PrintWriter(bw))
