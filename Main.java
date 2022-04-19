@@ -72,7 +72,7 @@ public class Main {
         public void actionPerformed(ActionEvent e) {
             String userName = textField.getText();
             String passWord = passField.getText();
-            if (userName.equals("root") && passWord.equals("root")) {
+            if (userName.equals("p131759") && passWord.equals("UMW.42972")) {
                 JOptionPane.showMessageDialog(null, "Correct"); //test to make sure button is working
             }
         }
