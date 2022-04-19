@@ -22,26 +22,33 @@ public class User {
         String inputFName = scnr.nextLine();
         String inputLName = scnr.nextLine();
         int inputID = scnr.nextInt();
+        writeEmployee(inputFName, inputLName, inputID);
 
         System.out.println("Employee has been created");
 
+
+    }
+    public static void writeEmployee(String fName, String lName, int id) {
+        try (FileWriter fw = new FileWriter("EmployeeList", true);
+             BufferedWriter bw = new BufferedWriter(fw);
+             PrintWriter out = new PrintWriter(bw)) {
+            //new FileWriter("Reviews.txt", false).close();
+            out.println(fName);
+            out.println(lName);
+            out.println(id);
+            out.println();
+            out.close();
+        } catch (IOException e) {
+            //exception handling left as an exercise for the reader
+        }
     }
     public static void listEmployees() {
-        try {
-            Scanner input = new Scanner(new File("EmployeeList"));
-            while (input.hasNextLine()) {
-                String firstName = input.nextLine();
-                String lastName = input.nextLine();
-                int employeeID = Integer.parseInt(input.nextLine());
-                input.nextLine();
-                input.nextLine();
-                System.out.println(firstName);
-                System.out.println(lastName);
-                System.out.println(employeeID);
-                System.out.println();
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("File Not Found");
+        try (FileReader fw = new FileReader("EmployeeList");
+             BufferedReader bw = new BufferedReader(fw);) {
+            
+
+        } catch (IOException e) {
+            //exception handling left as an exercise for the reader
         }
     }
     public static void updateEmployeeList() {
@@ -53,7 +60,6 @@ public class User {
                 int employeeID = Integer.parseInt(input.nextLine());
                 Employee newEmployee = new Employee(firstName, lastName, employeeID);
                 employeeList.add(newEmployee);
-                input.nextLine();
                 input.nextLine();
             }
         } catch (FileNotFoundException e) {
@@ -91,12 +97,12 @@ public class User {
                     reader.nextLine();
                 } catch (Exception f) {
                     System.out.println();
-                    System.out.println("Bottom of page");
                 }
             }
         } catch (FileNotFoundException e) {
             System.out.println("File Not Found");
         }
+        System.out.print("Bottom of page");
     }
 
     public void setRating() {

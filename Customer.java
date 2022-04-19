@@ -48,8 +48,6 @@ public class Customer {
                 int employeeID = Integer.parseInt(input.nextLine());
                 Employee newEmployee = new Employee(firstName, lastName, employeeID);
                 employees.add(newEmployee);
-                input.nextLine();
-                input.nextLine();
 
                 System.out.println(firstName + " " + lastName);
             }
