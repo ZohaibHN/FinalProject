@@ -1,10 +1,10 @@
 import java.util.*;
 import java.io.*;
 public class Employee  {
-    private String employeeFName = "";
-    private String employeeLName = "";
-    private int employeeID = 0;
-    private int employeeRating = 0;
+    private String employeeFName;
+    private String employeeLName;
+    private int employeeID;
+    private int employeeRating;
     private ArrayList<String> ratings;
     FileReader employeeIn = new FileReader("EmployeeList");
     Scanner sin = new Scanner(employeeIn);
@@ -15,20 +15,13 @@ public class Employee  {
         this.employeeFName = employeeFName;
         this.employeeLName = employeeLName;
         this.employeeID = employeeID;
+        this.employeeRating = 0;
     }
     public Employee(Scanner employeeScanner) throws FileNotFoundException {
-        while (sin.hasNext()) {
-            if (sin.hasNext()) {
-                this.employeeFName = employeeScanner.nextLine();
-            } else if(sin.hasNext()) {
-                this.employeeLName = employeeScanner.nextLine();
-            } else if(sin.hasNextInt()) {
-                this.employeeID = employeeScanner.nextInt();
-            } else if (sin.hasNextInt()) {
-                this.employeeRating = Integer.parseInt(employeeScanner.nextLine());
-            }
-
-        }
+        this.employeeFName = employeeScanner.nextLine();
+        this.employeeLName = employeeScanner.nextLine();
+        this.employeeID = employeeScanner.nextInt();
+        this.employeeRating = employeeScanner.nextInt();
         }
 
 
