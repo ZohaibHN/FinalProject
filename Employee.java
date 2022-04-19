@@ -9,4 +9,14 @@ public class Employee {
         this.employeeLName = employeeLName;
         this.employeeID = employeeID;
     }
+
+    public String getEmployeeFName() {
+        return employeeFName;
+    }
+    public String getEmployeeLName() {
+        return employeeLName;
+    }
+    public String getEmployeeID() {
+        return employeeID;
+    }
 }
