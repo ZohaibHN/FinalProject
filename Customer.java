@@ -28,9 +28,9 @@ public class Customer {
             int employeeID = Integer.parseInt(input.nextLine());
             input.nextLine();
             input.nextLine();
-            //System.out.println(firstName);
-            //System.out.println(lastName);
-            System.out.println(employeeID);
+            System.out.println(firstName);
+            System.out.println(lastName);
+            //System.out.println(employeeID);
             System.out.println();
         }
     }

@@ -1,5 +1,5 @@
 import java.util.*;
-import java.io.*;
+
 public class Employee  {
     private String employeeFName;
     private String employeeLName;
@@ -16,13 +16,6 @@ public class Employee  {
         this.employeeID = employeeID;
         this.employeeRating = 0;
     }
-    public Employee(Scanner employeeScanner)  {
-        this.employeeFName = employeeScanner.nextLine();
-        this.employeeLName = employeeScanner.nextLine();
-        this.employeeID = employeeScanner.nextInt();
-        this.employeeRating = employeeScanner.nextInt();
-        }
-
 
 
     public String getEmployeeFName() {
