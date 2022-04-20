@@ -46,7 +46,7 @@ public class Employee  {
     } 
     
     public static ArrayList<Employee> getEmployeesFromFile(String file) throws FileNotFoundException {
-        Scanner sc = new Scanner(file); 
+        Scanner sc = new Scanner(new File(file)); 
         ArrayList<Employee> e = new ArrayList<Employee>(); 
         
         while(sc.hasNext()) {
@@ -59,6 +59,8 @@ public class Employee  {
             int numRevs = Integer.parseInt(sc.nextLine()); 
             for(int i = 0; i < numRevs; i++) 
                 temp.addRating(sc.nextLine()); 
+
+            e.add(temp); 
         }
         
         return e; 
