@@ -53,7 +53,7 @@ public class User {
     public static void listEmployees() {
         try {
             Scanner input = new Scanner(new File("EmployeeList"));
-            while (input.hasNextLine()) {
+            while (input.hasNext()) {
                 String firstName = input.nextLine();
                 String lastName = input.nextLine();
                 int employeeID = Integer.parseInt(input.nextLine());
@@ -72,16 +72,17 @@ public class User {
 
 
     public static void rateEmployee() throws FileNotFoundException {
-        Scanner input = new Scanner(new File("EmployeeList"));
+        Scanner employeeNum = new Scanner(new File("EmployeeList"));
         System.out.println("Which employee would you like to select?");
         int i = 0;
-            while (input.hasNextLine()) {
-                String firstName = input.nextLine();
-                String lastName = input.nextLine();
-                int employeeID = Integer.parseInt(input.nextLine());
-                input.nextLine();
-                input.nextLine();
-                System.out.println("[" + i + "] " + lastName + ", " + lastName);
+            for (Employee employee : employeeList) {
+                /**String firstName = employeeNum.nextLine();
+                String lastName = employeeNum.nextLine();
+                int employeeID = Integer.parseInt(employeeNum.nextLine());
+                employeeNum.nextLine();
+                employeeNum.nextLine();
+                 **/
+                System.out.println("[" + i + "] " + employee.getEmployeeLName() + ", " + employee.getEmployeeFName());
                 i++;
             }
     }

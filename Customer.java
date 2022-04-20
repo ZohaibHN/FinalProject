@@ -47,7 +47,7 @@ public class Customer {
     public void listEmployees() {
         try {
             Scanner input = new Scanner(new File("EmployeeList"));
-            while (input.hasNextLine()) {
+            while (input.hasNext()) {
                 String firstName = input.nextLine();
                 String lastName = input.nextLine();
                 int employeeID = Integer.parseInt(input.nextLine());
