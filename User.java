@@ -114,11 +114,10 @@ public class User {
                     System.out.println();
 
                 }
-                break;
             } else {
                 System.out.printf("No reviews for ID (%d).\n", ID);
-                break;
             }
+            break;
         }
         
 
