@@ -55,7 +55,7 @@ public class User {
             for(Employee e : employees) {
                 System.out.printf("%s %s\n\tID: %d\n\trating: %d\n\n", 
                                   e.getEmployeeFName(), e.getEmployeeLName(), 
-                                  e.getEmployeeID(), e.getStarRating()); 
+                                  e.getEmployeeID(), e.getRating()); 
                 pause(0.25D);
             } 
             pause(0.66D);
