@@ -57,21 +57,21 @@ public class User {
                 String firstName = input.nextLine();
                 String lastName = input.nextLine();
                 int employeeID = Integer.parseInt(input.nextLine());
+                int rating = Integer.parseInt(input.nextLine());
                 input.nextLine();
-                input.nextLine();
-                Employee newEmployee = new Employee(firstName,lastName,employeeID);
-                System.out.println(firstName + " " + lastName);
+                System.out.printf("%s %s\n\tID: %d\n\trating: %d\n\n", firstName, lastName, employeeID, rating);
                 pause(0.25D);
             }
             //System.out.println();
             pause(0.66D);
-        }  catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             System.out.println("File Not Found");
         }
     }
 
 
-    public static void rateEmployee() throws FileNotFoundException {
+
+        public static void rateEmployee() throws FileNotFoundException {
         int i = 1;
         Scanner employeeNum = new Scanner(new File("EmployeeList"));
         Scanner input = new Scanner(System.in);

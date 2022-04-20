@@ -60,24 +60,5 @@ public class Customer {
         }
         System.out.println("Enter in the number which corresponds with the appropriate employee.");
 
-
-        /**try {
-            Scanner input = new Scanner(new File("EmployeeList"));
-            int i = 0; 
-            while (input.hasNext()) {
-                String firstName = input.nextLine();
-                String lastName = input.nextLine();
-                int employeeID = Integer.parseInt(input.nextLine());
-                input.nextLine();
-                input.nextLine();
-                Employee newEmployee = new Employee(firstName, lastName, employeeID);
-                employees.add(newEmployee);
-
-                i += 1; 
-                System.out.printf("[%d] %s %s\n", i, firstName, lastName); 
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("File Not Found");
-        }**/
     }
 }
