@@ -72,19 +72,20 @@ public class User {
 
 
     public static void rateEmployee() throws FileNotFoundException {
+        int i = 1;
         Scanner employeeNum = new Scanner(new File("EmployeeList"));
-        System.out.println("Which employee would you like to select?");
-        int i = 0;
-            for (Employee employee : employeeList) {
-                /**String firstName = employeeNum.nextLine();
-                String lastName = employeeNum.nextLine();
-                int employeeID = Integer.parseInt(employeeNum.nextLine());
-                employeeNum.nextLine();
-                employeeNum.nextLine();
-                 **/
-                System.out.println("[" + i + "] " + employee.getEmployeeLName() + ", " + employee.getEmployeeFName());
-                i++;
-            }
+        Scanner input = new Scanner(System.in);
+        while (employeeNum.hasNext()) {
+            String firstName = employeeNum.nextLine();
+            String lastName = employeeNum.nextLine();
+            int employeeID = Integer.parseInt(employeeNum.nextLine());
+            employeeNum.nextLine();
+            employeeNum.nextLine();
+            System.out.println("[" + i + "] " + firstName + ", " + lastName);
+            i++;
+        }
+            System.out.println("Which employee would you like to select?");
+            int numSelection = input.nextInt();
     }
 
     public static void readEmployeeReviews(int ID) {
