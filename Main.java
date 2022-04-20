@@ -72,11 +72,12 @@ public class Main {
 
             try {
                 c1.pause(1D);
-                System.out.print(".");
+                System.out.print(" .");
                 c1.pause(1D);
                 System.out.print(".");
                 c1.pause(1D);
                 System.out.println(".");
+                c1.pause(0.25D);
                 c1.listEmployees();
                 int selectEmployee = input.nextInt();
                 c1.WriteReview(selectEmployee);

@@ -12,7 +12,7 @@ public class Customer {
             //new FileWriter("Reviews.txt", false).close();
             System.out.println("Enter your review:");
             String customerReview = reviewInput.nextLine();
-            out.println(employees.get(employeeNum - 1).getEmployeeID());
+            out.println(employees.get(employeeNum-1).getEmployeeID());
             out.println(customerReview);
             out.close();
             System.out.println("Thank you for your review");
@@ -44,8 +44,24 @@ public class Customer {
         }
 
     }
-    public void listEmployees() {
-        try {
+    public void listEmployees() throws FileNotFoundException {
+        int i = 1;
+        Scanner employeeNum = new Scanner(new File("EmployeeList"));
+        Scanner input = new Scanner(System.in);
+        while (employeeNum.hasNext()) {
+            String firstName = employeeNum.nextLine();
+            String lastName = employeeNum.nextLine();
+            int employeeID = Integer.parseInt(employeeNum.nextLine());
+            Employee newEmployee = new Employee(firstName, lastName, employeeID);
+            employeeNum.nextLine();
+            employeeNum.nextLine();
+            System.out.println("[" + i + "] " + firstName + ", " + lastName);
+            i++;
+        }
+        System.out.println("Enter in the number which corresponds with the appropriate employee.");
+
+
+        /**try {
             Scanner input = new Scanner(new File("EmployeeList"));
             while (input.hasNext()) {
                 String firstName = input.nextLine();
@@ -60,6 +76,6 @@ public class Customer {
             }
         } catch (FileNotFoundException e) {
             System.out.println("File Not Found");
-        }
+        }**/
     }
 }
