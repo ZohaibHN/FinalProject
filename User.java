@@ -30,8 +30,8 @@ public class User {
         System.out.println("Enter employee information:\n");
         String inputFName = scnr.nextLine();
         String inputLName = scnr.nextLine();
-        int inputID = scnr.nextInt();
-        int inputRating = scnr.nextInt();
+        int inputID = Integer.parseInt(scnr.nextLine());
+        int inputRating = Integer.parseInt( scnr.nextLine());
 
         printWriter.append(inputFName);
         printWriter.append(inputLName);
@@ -75,20 +75,20 @@ public class User {
             System.out.printf("[%d] %s %s\n", i++, e.getEmployeeFName(), e.getEmployeeLName()); 
         
         System.out.println("Which employee would you like to select?");
-        int numSelection = input.nextInt();
+        int numSelection = Integer.parseInt(input.nextLine());
         
         while(numSelection < 1 || numSelection > employees.size()) {
             System.out.println("That's not a valid employee."); 
             System.out.println("Which employee would you like to select?");
-            numSelection = input.nextInt();
+            numSelection = Integer.parseInt(input.nextLine());
         }
         
         System.out.println("What rating would you like to give them? [0-5]"); 
-        int rating = input.nextInt(); 
+        int rating = Integer.parseInt(input.nextLine()); 
         while(rating < 0 || rating > 5) {
             System.out.println("That's not a valid star rating."); 
             System.out.println("What rating would you like to give them? [0-5]"); 
-            rating = input.nextInt(); 
+            rating = Integer.parseInt(input.nextLine()); 
         }
         
         employees.get(numSelection - 1).setStarRating(rating); 
@@ -134,7 +134,7 @@ public class User {
               System.out.println("3. View Employee Reviews");
               System.out.println("4. Rate Employees");
               System.out.println("5. Exit");
-              int adminNum = input.nextInt();
+              int adminNum = Integer.parseInt(input.nextLine());
               switch (adminNum) {
                   case 1: createEmployee(); break;
                   case 2: listEmployees(); break;
@@ -166,11 +166,11 @@ public class User {
             System.out.println("1. View Employee Reviews");
             System.out.println("2. Exit");
             System.out.print("What would you like to do?: ");
-            int userInput = input.nextInt();
+            int userInput = Integer.parseInt(input.nextLine());
             switch(userInput) {
                 case 1:
                     System.out.print("Enter Employee ID: ");
-                    int employeeID = input.nextInt();
+                    int employeeID = Integer.parseInt(input.nextLine());
                     readEmployeeReviews(employeeID);
                     break;
                 case 2:
