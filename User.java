@@ -33,11 +33,11 @@ public class User {
         int inputID = scnr.nextInt();
         int inputRating = scnr.nextInt();
 
-        printWriter.println(inputFName);
-        printWriter.println(inputLName);
-        printWriter.println(inputID);
-        printWriter.println(inputRating);
-        printWriter.println("0");
+        printWriter.append(inputFName);
+        printWriter.append(inputLName);
+        printWriter.append(inputID);
+        printWriter.append(inputRating);
+        printWriter.append("0");
         printWriter.close();
         System.out.println("Employee has been created");
 
