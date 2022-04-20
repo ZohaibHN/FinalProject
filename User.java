@@ -51,7 +51,7 @@ public class User {
     }
     public static void listEmployees() {
         try {
-            ArrayList<Employee> employees = Employee.getEmployeesFromFile("EmployeeList");
+            ArrayList<Employees> employees = Employee.getEmployeesFromFile("EmployeeList"); 
             for(Employee e : employees) {
                 System.out.printf("%s %s\n\tID: %d\n\trating: %d\n\n", 
                                   e.getEmployeeFName(), e.getEmployeeLName(), 
@@ -66,7 +66,7 @@ public class User {
     }
 
 
-    public static void rateEmployee() throws IOException {
+    public static void rateEmployee() throws FileNotFoundException {
         int i = 1;
         Scanner input = new Scanner(System.in);
         
@@ -97,7 +97,7 @@ public class User {
         Employee.writeToFile("EmployeeList", employees); 
     }
 
-    public static void readEmployeeReviews(int ID) throws FileNotFoundException {
+    public static void readEmployeeReviews(int ID) {
         ArrayList<Employee> employees = Employee.getEmployeesFromFile("EmployeeList"); 
         for(Employee e : employees) {
             if(e.getEmployeeID() == ID) {
@@ -137,7 +137,7 @@ public class User {
               }
           }
       }
-      public static void employeeMenu() throws FileNotFoundException {
+      public static void employeeMenu() {
         Scanner input = new Scanner(System.in);
             System.out.println("1. View Employee Reviews");
             System.out.println("2. Exit");
