@@ -5,7 +5,12 @@ import java.io.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-
+/**
+ * @author Adam Broskie, Zohaib Hassan, Joel Amanuel
+ * This program represents what a boss/manager of a workplace will
+ * do when they do a performance review.
+ *
+ */
 public class Main {
     JFrame frame;
     JLabel userLabel;
@@ -15,7 +20,9 @@ public class Main {
     JButton button, customerButton;
     User user = new User();
 
-
+    /**
+     * this method creates a JFrame where we can log in.
+     */
     public Main() {
         frame = new JFrame("Login");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -44,19 +51,22 @@ public class Main {
         panel.add(customerButton);
 
         frame.add(panel, BorderLayout.CENTER);
-
-
         frame.setSize(400, 200);
         frame.setVisible(true);
-
-
-
     }
+
+    /**
+     * a getter for the JFrame
+     * @return the JFrame
+     */
     public JFrame getFrame() {
         return frame;
     }
 
-
+    /**
+     * JButton for the customer, allows us to interact with the JFrame
+     * and use the customer's features
+     */
     class CustomerButton implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) throws InputMismatchException {
@@ -94,6 +104,12 @@ public class Main {
             //newCustomer.Menu(); //test code to make sure a method is called
         }
     }
+
+    /**
+     * Login button for Admin/Employee
+     * Will verify if the credentials are correct, otherwise a popup will appear saying
+     * they are incorrect.
+     */
     class LoginButton implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -122,6 +138,11 @@ public class Main {
         }
     }
 
+    /**
+     * main method which draws JFrame
+     * @param args
+     * @throws IOException
+     */
     public static void main(String args[]) throws IOException {
         Main window = new Main();
         window.getFrame().setSize(400, 150);

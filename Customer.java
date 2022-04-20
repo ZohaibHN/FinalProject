@@ -1,8 +1,20 @@
 import java.util.*;
 import java.io.*;
+
+/**
+ * This class handles all the options that the Customer is able to do
+ * @author Adam Broskie, Zohaib Hassan, Joel Amanuel
+ */
 public class Customer {
     private String name;
 
+    /**
+     * method to write a review for a chosen employee
+     * calls getEmployeesFromFile method to grab the employees.
+     * from the EmployeeList file
+     * @param employeeIndex index for which employee chosen
+     * @throws IOException
+     */
     public void WriteReview(int employeeIndex) throws IOException {
         Scanner reviewInput = new Scanner(System.in);
         ArrayList<Employee> employees = Employee.getEmployeesFromFile("EmployeeList");
@@ -28,6 +40,10 @@ public class Customer {
         System.out.print(".");
     }
 
+    /**
+     * pause method so everything doesn't pop up all at once
+     * @param waitTime wait time
+     */
     public void pause(double waitTime) {
         try {
             Thread.sleep((int) (waitTime * 1000.0D));
@@ -36,6 +52,11 @@ public class Customer {
 
     }
 
+    /**
+     * lists all employees available
+     * @throws FileNotFoundException
+     * @throws InputMismatchException
+     */
     public void listEmployees() throws FileNotFoundException, InputMismatchException {
         ArrayList<Employee> employees = Employee.getEmployeesFromFile("EmployeeList");
         for (int i = 0; i < employees.size(); i++) {

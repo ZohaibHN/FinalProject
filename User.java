@@ -2,18 +2,35 @@ import java.util.*;
 import java.io.*;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+
+/**
+ * This class represents all the features that the Admin will be able to do
+ * @author Adam Broskie, Zohaib Hassan, Joel Amanuel
+ */
 public class User {
     private static final String ADMIN_USERNAME = "p131759";
     private static final String ADMIN_PASSWORD = "UMW.42972";
     private int employeeRating;
 
+    /**
+     * getter for the admin username
+     * @return the username
+     */
     public static String getAdminUsername() {
         return ADMIN_USERNAME;
     }
-
+    /**
+     * getter for the admin password
+     * @return the password
+     */
     public static String getAdminPassword() {
         return ADMIN_PASSWORD;
     }
+
+    /**
+     * pause method so everything doesn't pop up all at once.
+     * @param waitTime
+     */
     public static void pause(double waitTime) {
         try {
             Thread.sleep((int)(waitTime * 1000.0D));
@@ -21,7 +38,11 @@ public class User {
         }
 
     }
-    //creates a new employee
+
+    /**
+     * method that creates employees.  Writes changes to the EmployeeList file
+     * @throws IOException
+     */
     public static void createEmployee() throws IOException {
         FileWriter fileWriter = new FileWriter("EmployeeList", true);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
@@ -49,6 +70,11 @@ public class User {
         pause(1D);
 
     }
+
+    /**
+     * Method to list the currently "hired" employees
+     * Reads from EmployeeList, with some time interval between each employee to help with visual aid
+     */
     public static void listEmployees() {
         try {
             ArrayList<Employee> employees = Employee.getEmployeesFromFile("EmployeeList"); 
@@ -65,7 +91,14 @@ public class User {
         }
     }
 
-
+    /**
+     * method to give a selected employee a 0-5 star rating.
+     * Prints the Employee list, with a number beside each one
+     * so the Admin can easily select which employee they wish
+     * to give a rating for.
+     * @throws IOException
+     * @throws NumberFormatException
+     */
     public static void rateEmployee() throws IOException, NumberFormatException {
         int i = 1;
         Scanner input = new Scanner(System.in);
@@ -101,6 +134,12 @@ public class User {
         Employee.writeToFile("EmployeeList", employees); 
     }
 
+    /**
+     * Reads the employee reviews which the customer writes.
+     * Each review is linked with the employee's uniqueID number,
+     * and the ID is used when grabbing the review.
+     * @param ID
+     */
     public static void readEmployeeReviews(int ID) {
         ArrayList<Employee> employees;
         try {
@@ -131,6 +170,13 @@ public class User {
         pause(2D);
     }
 
+    /**
+     * Method for the Admin's options once they log in.
+     * With each number, a different method is called.
+     * @throws IOException
+     * @throws InputMismatchException
+     * @throws NumberFormatException
+     */
       public static void adminMenu() throws IOException, InputMismatchException, NumberFormatException {
           while (true) {
               Scanner input = new Scanner(System.in);
@@ -184,7 +230,13 @@ public class User {
               }
           }
       }
-      public static void employeeMenu() {
+
+    /**
+     * method for the Employee menu.
+     * Less amount of options compared to that of the Admin,
+     * since they should only be able to view their reviews.
+     */
+    public static void employeeMenu() {
         Scanner input = new Scanner(System.in);
             System.out.println("1. View Employee Reviews");
             System.out.println("2. Exit");
