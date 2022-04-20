@@ -31,6 +31,9 @@ public class Employee  {
     public int getEmployeeID() {
         return employeeID;
     }
+    public int getRating() {
+        return employeeRating; 
+    } 
     public void setStarRating(int rating) {
         this.employeeRating = rating; 
     } 
