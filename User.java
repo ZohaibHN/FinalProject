@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class User {
     private static final String ADMIN_USERNAME = "p131759";
     private static final String ADMIN_PASSWORD = "UMW.42972";
-    private static ArrayList<Employee> employeeList = new ArrayList<Employee>();
     private int employeeRating;
 
     public static String getAdminUsername() {
@@ -38,7 +37,7 @@ public class User {
         printWriter.println(inputLName);
         printWriter.println(inputID);
         printWriter.println(inputRating);
-        printWriter.println("");
+        printWriter.println("0");
         printWriter.close();
         System.out.println("Employee has been created");
 
@@ -52,43 +51,28 @@ public class User {
     }
     public static void listEmployees() {
         try {
-            Scanner input = new Scanner(new File("EmployeeList"));
-            while (input.hasNext()) {
-                String firstName = input.nextLine();
-                String lastName = input.nextLine();
-                int employeeID = Integer.parseInt(input.nextLine());
-                int rating = Integer.parseInt(input.nextLine());
-                input.nextLine();
-                System.out.printf("%s %s\n\tID: %d\n\trating: %d\n\n", firstName, lastName, employeeID, rating); 
+            ArrayList<Employees> employees = Employee.getEmployeesFromFile("EmployeeList"); 
+            for(Employee e : employees) {
+                System.out.printf("%s %s\n\tID: %d\n\trating: %d\n\n", 
+                                  e.getEmployeeFName(), e.getEmployeeLName(), 
+                                  e.getEmployeeID(), e.getStarRating()); 
                 pause(0.25D);
-            }
-            //System.out.println();
+            } 
             pause(0.66D);
         }  catch (FileNotFoundException e) {
             System.out.println("File Not Found");
+            System.exit(-1); 
         }
     }
 
 
     public static void rateEmployee() throws FileNotFoundException {
         int i = 1;
-        Scanner employeeNum = new Scanner(new File("EmployeeList"));
         Scanner input = new Scanner(System.in);
         
-        ArrayList<Employee> employees = new ArrayList<Employee>(); 
-        while (employeeNum.hasNext()) {
-            String firstName = employeeNum.nextLine();
-            String lastName = employeeNum.nextLine();
-            int employeeID = Integer.parseInt(employeeNum.nextLine());
-            int rating = Integer.parseInt(employeeNum.nextLine()); 
-            employeeNum.nextLine();
-            
-            employees.add(new Employee(firstName, lastName, employeeID, rating)); 
-            System.out.println("[" + i + "] " + firstName + ", " + lastName);
-            i++;
-        }
-        
-        employeeNum.close(); 
+        ArrayList<Employee> employees = Employee.getEmployeesFromFile("EmployeeList"); 
+        for(Employee e : employees) 
+            System.out.printf("[%d] %s %s\n", i++, e.getEmployeeFName(), e.getEmployeeLName()); 
         
         System.out.println("Which employee would you like to select?");
         int numSelection = input.nextInt();
@@ -110,45 +94,22 @@ public class User {
         employees.get(numSelection - 1).setStarRating(rating); 
         
         // writing out the data back to the original file. 
-        try {
-            FileWriter fw = new FileWriter("EmployeeList"); 
-            PrintWriter pw = new PrintWriter(new BufferedWriter(fw)); 
-            
-            for(Employee e : employees) {
-                pw.println(e.getEmployeeFName()); 
-                pw.println(e.getEmployeeLName()); 
-                pw.println(e.getEmployeeID()); 
-                pw.println(e.getRating()); 
-                pw.println(); 
-            } 
-            
-            pw.close(); 
-        } catch(IOException e) {
-            e.printStackTrace(); 
-            System.exit(-1); 
-        } 
+        Employee.writeToFile("EmployeeList", employees); 
     }
 
     public static void readEmployeeReviews(int ID) {
-        try {
-            Scanner reader = new Scanner(new File("Reviews.txt"));
-            while(reader.hasNext()) {
-                try {
-                    int fileID = Integer.parseInt(reader.nextLine());
-                    String review = reader.nextLine();
-
-                    if (fileID == ID) {
-                        System.out.println(review);
-                    }
-                    reader.nextLine();
-                } catch (Exception f) {
-                    System.out.println();
-                }
+        ArrayList<Employee> employees = Employee.getEmployeesFromFile("EmployeeList"); 
+        for(Employee e : employees) {
+            if(e.getEmployeeID() == ID) {
+                System.out.printf("Customer reviews for employee #%d:\n", ID); 
+                for(String review : e.getReviews()) {
+                    System.out.println(review); 
+                    System.out.println(); 
+                } 
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("File Not Found");
-        }
-        System.out.print("Bottom of page\n");
+        } 
+        
+        System.out.printf("The provided ID (%d) was not found.\n", ID); 
     }
 
       public static void adminMenu() throws IOException {
