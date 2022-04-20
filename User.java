@@ -51,7 +51,7 @@ public class User {
     }
     public static void listEmployees() {
         try {
-            ArrayList<Employees> employees = Employee.getEmployeesFromFile("EmployeeList"); 
+            ArrayList<Employee> employees = Employee.getEmployeesFromFile("EmployeeList"); 
             for(Employee e : employees) {
                 System.out.printf("%s %s\n\tID: %d\n\trating: %d\n\n", 
                                   e.getEmployeeFName(), e.getEmployeeLName(), 
