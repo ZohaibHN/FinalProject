@@ -98,7 +98,7 @@ public class User {
     }
 
     public static void readEmployeeReviews(int ID) {
-        ArrayList<Employee> employees = null; 
+        ArrayList<Employee> employees;
         try {
             employees = Employee.getEmployeesFromFile("EmployeeList"); 
         } catch(IOException e) {
@@ -107,20 +107,24 @@ public class User {
         } 
 
         for(Employee e : employees) {
-            if(e.getEmployeeID() == ID) {
-                System.out.printf("Customer reviews for employee #%d:\n", ID); 
+            if(e.getEmployeeID() == ID && e.getReviews().size() > 0) {
+                System.out.printf("Customer reviews for employee #%d:\n", ID);
+
                 for(String review : e.getReviews()) {
-                    System.out.println(review); 
+                    System.out.println(review);
                     System.out.println();
-
+                    break;
                 }
-            } else {
-                System.out.printf("No reviews for ID (%d).\n", ID);
-            }
-            break;
-        }
-        
 
+            }
+
+            else if (e.getEmployeeID() == ID  && e.getReviews().size() == 0) {
+                System.out.printf("No reviews for ID (%d).\n", ID);
+                break;
+            }
+
+        }
+        pause(2D);
     }
 
       public static void adminMenu() throws IOException {
