@@ -111,12 +111,17 @@ public class User {
                 System.out.printf("Customer reviews for employee #%d:\n", ID); 
                 for(String review : e.getReviews()) {
                     System.out.println(review); 
-                    System.out.println(); 
-                } 
+                    System.out.println();
+
+                }
+                break;
+            } else {
+                System.out.printf("No reviews for ID (%d).\n", ID);
+                break;
             }
-        } 
+        }
         
-        System.out.printf("The provided ID (%d) was not found.\n", ID); 
+
     }
 
       public static void adminMenu() throws IOException {
