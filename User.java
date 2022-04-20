@@ -33,11 +33,11 @@ public class User {
         int inputID = scnr.nextInt();
         int inputRating = scnr.nextInt();
 
-        printWriter.println(inputFName);
-        printWriter.println(inputLName);
-        printWriter.println(inputID);
-        printWriter.println(inputRating);
-        printWriter.println("0");
+        printWriter.append(inputFName);
+        printWriter.append(inputLName);
+        printWriter.append(String.valueOf(inputID));
+        printWriter.append(String.valueOf(inputRating));
+        printWriter.append("0");
         printWriter.close();
         System.out.println("Employee has been created");
 
@@ -139,11 +139,11 @@ public class User {
                   case 1: createEmployee(); break;
                   case 2: listEmployees(); break;
                   case 3: 
-                      ArrayList<Employee> e = null;
+                      ArrayList<Employees> e = null; 
                       try {
-                          e = Employee.getEmployeesFromFile("EmployeeList");
-                      } catch(IOException f) {
-                          f.printStackTrace();
+                          e = Employees.getEmployeesFromFile("EmployeeList"); 
+                      } catch(IOException e) {
+                          e.printStackTrace(); 
                           System.exit(-1); 
                       } 
                       
