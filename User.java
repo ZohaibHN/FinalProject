@@ -27,7 +27,7 @@ public class User {
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         PrintWriter printWriter = new PrintWriter(bufferedWriter);
         Scanner scnr = new Scanner(System.in);
-        System.out.println("Enter employee information:\n");
+        System.out.println("Enter employee information pressing enter after every aspect:\n");
         String inputFName = scnr.nextLine();
         String inputLName = scnr.nextLine();
         int inputID = Integer.parseInt(scnr.nextLine());
