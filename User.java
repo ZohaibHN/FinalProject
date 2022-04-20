@@ -51,12 +51,20 @@ public class User {
 
     }
     public static void listEmployees() {
-        try (FileReader fw = new FileReader("EmployeeList");
-             BufferedReader bw = new BufferedReader(fw);) {
-            
+        try {
+            Scanner input = new Scanner(new File("EmployeeList"));
+            while (input.hasNextLine()) {
+                String firstName = input.nextLine();
+                String lastName = input.nextLine();
+                int employeeID = Integer.parseInt(input.nextLine());
+                input.nextLine();
+                input.nextLine();
+                Employee newEmployee = new Employee(firstName, lastName, employeeID);
 
-        } catch (IOException e) {
-            //exception handling left as an exercise for the reader
+                System.out.println(firstName + " " + lastName);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File Not Found");
         }
     }
     public static void updateEmployeeList() {
