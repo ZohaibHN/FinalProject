@@ -59,12 +59,13 @@ public class User {
                 int employeeID = Integer.parseInt(input.nextLine());
                 input.nextLine();
                 input.nextLine();
+                Employee newEmployee = new Employee(firstName,lastName,employeeID);
                 System.out.println(firstName + " " + lastName);
                 pause(0.25D);
             }
-            System.out.println("");
+            //System.out.println();
             pause(0.66D);
-        } catch (FileNotFoundException e) {
+        }  catch (FileNotFoundException e) {
             System.out.println("File Not Found");
         }
     }
@@ -126,7 +127,7 @@ public class User {
               switch (adminNum) {
                   case 1 -> createEmployee();
                   case 2 -> listEmployees();
-                  case 3 -> readEmployeeReviews();
+                  case 3 -> readEmployeeReviews(0);
                   case 4 -> rateEmployee(); //rateEmployees();
                   case 5 -> System.exit(-1);
               }
