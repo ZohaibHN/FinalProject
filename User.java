@@ -35,8 +35,8 @@ public class User {
 
         printWriter.append(inputFName);
         printWriter.append(inputLName);
-        printWriter.append(inputID);
-        printWriter.append(inputRating);
+        printWriter.append(String.valueOf(inputID));
+        printWriter.append(String.valueOf(inputRating));
         printWriter.append("0");
         printWriter.close();
         System.out.println("Employee has been created");
