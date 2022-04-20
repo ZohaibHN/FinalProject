@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -107,7 +108,11 @@ public class Main {
             } else if ((userName.equals("employee") || userName.equals("Employee")) && passWord.equals("123456")) {
                 frame.dispose();
                 JOptionPane.showMessageDialog(null, "Access Granted: Welcome Employee");
-                user.employeeMenu();
+                try {
+                    user.employeeMenu();
+                } catch (FileNotFoundException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
             else {
                 JOptionPane.showMessageDialog(null, "Incorrect username/password.");//incorrect username/password

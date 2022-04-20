@@ -49,7 +49,7 @@ public class Employee  {
         Scanner sc = new Scanner(file); 
         ArrayList<Employee> e = new ArrayList<Employee>(); 
         
-        while(sc.hasNextLine()) {
+        while(sc.hasNext()) {
             String fn = sc.nextLine(); 
             String ln = sc.nextLine(); 
             int id = Integer.parseInt(sc.nextLine()); 
