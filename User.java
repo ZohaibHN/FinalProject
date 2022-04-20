@@ -75,17 +75,59 @@ public class User {
         int i = 1;
         Scanner employeeNum = new Scanner(new File("EmployeeList"));
         Scanner input = new Scanner(System.in);
+        
+        ArrayList<Employee> employees = new ArrayList<Employee>(); 
         while (employeeNum.hasNext()) {
             String firstName = employeeNum.nextLine();
             String lastName = employeeNum.nextLine();
             int employeeID = Integer.parseInt(employeeNum.nextLine());
+            int rating = Integer.parseInt(employeeNum.nextLine()); 
             employeeNum.nextLine();
-            employeeNum.nextLine();
+            
+            employees.add(new Employee(firstName, lastName, employeeID, rating)); 
             System.out.println("[" + i + "] " + firstName + ", " + lastName);
             i++;
         }
+        
+        employeeNum.close(); 
+        
+        System.out.println("Which employee would you like to select?");
+        int numSelection = input.nextInt();
+        
+        while(numSelection < 1 || numSelection > employees.size()) {
+            System.out.println("That's not a valid employee."); 
             System.out.println("Which employee would you like to select?");
-            int numSelection = input.nextInt();
+            numSelection = input.nextInt();
+        }
+        
+        System.out.println("What rating would you like to give them? [0-5]"); 
+        int rating = input.nextInt(); 
+        while(rating < 0 || rating > 5) {
+            System.out.println("That's not a valid star rating."); 
+            System.out.println("What rating would you like to give them? [0-5]"); 
+            rating = input.nextInt(); 
+        }
+        
+        employees.get(numSelection - 1).setStarRating(rating); 
+        
+        // writing out the data back to the original file. 
+        try {
+            FileWriter fw = new FileWriter("EmployeeList"); 
+            PrintWriter pw = new PrintWriter(new BufferedWriter(fw)); 
+            
+            for(Employee e : employees) {
+                pw.println(e.getEmployeeFName()); 
+                pw.println(e.getEmployeeLName()); 
+                pw.println(e.getEmployeeID()); 
+                pw.println(e.getRating()); 
+                pw.println(); 
+            } 
+            
+            pw.close(); 
+        } catch(IOException e) {
+            e.printStackTrace(); 
+            System.exit(-1); 
+        } 
     }
 
     public static void readEmployeeReviews(int ID) {
