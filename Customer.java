@@ -15,22 +15,22 @@ public class Customer {
             out.println(employees.get(employeeNum - 1).getEmployeeID());
             out.println(customerReview);
             out.close();
-                    System.out.println("Thank you for your review");
-                    System.out.println("Have a good day!");
-                    System.out.print("Exiting");
-                    pause(0.5D);
-                    System.out.print(".");
-                    pause(0.125D);
-                    System.out.print(".");
-                    pause(0.125D);
-                    System.out.print(".");
-                    pause(0.125D);
-                    System.out.print(".");
-                    pause(0.125D);
-                    System.out.print(".");
-                    pause(0.125D);
-                    System.out.print(".");
-                    System.exit(-1);
+            System.out.println("Thank you for your review");
+            System.out.println("Have a good day!");
+            System.out.print("Exiting");
+            pause(0.5D);
+            System.out.print(".");
+            pause(0.125D);
+            System.out.print(".");
+            pause(0.125D);
+            System.out.print(".");
+            pause(0.125D);
+            System.out.print(".");
+            pause(0.125D);
+            System.out.print(".");
+            pause(0.125D);
+            System.out.print(".");
+            System.exit(-1);
         } catch (IOException e) {
             //exception handling left as an exercise for the reader
         }
@@ -62,6 +62,4 @@ public class Customer {
             System.out.println("File Not Found");
         }
     }
-
-
 }

@@ -59,11 +59,8 @@ public class User {
                 int employeeID = Integer.parseInt(input.nextLine());
                 input.nextLine();
                 input.nextLine();
-                Employee newEmployee = new Employee(firstName, lastName, employeeID);
-
                 System.out.println(firstName + " " + lastName);
                 pause(0.25D);
-
             }
             System.out.println("");
             pause(0.66D);
@@ -73,23 +70,22 @@ public class User {
     }
 
 
-    public static void listEmployeeNames() {
-        Scanner employeeNum = new Scanner(System.in);
+    public static void rateEmployee() throws FileNotFoundException {
+        Scanner input = new Scanner(new File("EmployeeList"));
         System.out.println("Which employee would you like to select?");
         int i = 0;
-            for (Employee employee : employeeList) {
-
-                System.out.println("[" + i + "] " + employee.getEmployeeLName() + ", " + employee.getEmployeeFName());
+            while (input.hasNextLine()) {
+                String firstName = input.nextLine();
+                String lastName = input.nextLine();
+                int employeeID = Integer.parseInt(input.nextLine());
+                input.nextLine();
+                input.nextLine();
+                System.out.println("[" + i + "] " + lastName + ", " + lastName);
                 i++;
             }
-
-            int adminInput = employeeNum.nextInt();
-
-            System.out.println(adminInput + ": " + employeeList.get(adminInput));
-
     }
 
-    public static void employeeReview(int ID) {
+    public static void readEmployeeReviews(int ID) {
         try {
             Scanner reader = new Scanner(new File("Reviews.txt"));
             while(reader.hasNext()) {
@@ -108,13 +104,9 @@ public class User {
         } catch (FileNotFoundException e) {
             System.out.println("File Not Found");
         }
-        System.out.print("Bottom of page");
+        System.out.print("Bottom of page\n");
     }
 
-    public void setRating() {
-
-    }
-    //public void menuOptions()
       public static void adminMenu() throws IOException {
           while (true) {
               Scanner input = new Scanner(System.in);
@@ -134,8 +126,8 @@ public class User {
               switch (adminNum) {
                   case 1 -> createEmployee();
                   case 2 -> listEmployees();
-                  case 3 -> listEmployeeNames();
-                  case 4 -> listEmployeeNames(); //rateEmployees();
+                  case 3 -> readEmployeeReviews();
+                  case 4 -> rateEmployee(); //rateEmployees();
                   case 5 -> System.exit(-1);
               }
           }
@@ -150,7 +142,7 @@ public class User {
                 case 1:
                     System.out.print("Enter Employee ID: ");
                     int employeeID = input.nextInt();
-                    employeeReview(employeeID);
+                    readEmployeeReviews(employeeID);
                     break;
                 case 2:
                     System.exit(-1);
