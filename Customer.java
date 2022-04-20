@@ -63,6 +63,7 @@ public class Customer {
 
         /**try {
             Scanner input = new Scanner(new File("EmployeeList"));
+            int i = 0; 
             while (input.hasNext()) {
                 String firstName = input.nextLine();
                 String lastName = input.nextLine();
@@ -72,7 +73,8 @@ public class Customer {
                 Employee newEmployee = new Employee(firstName, lastName, employeeID);
                 employees.add(newEmployee);
 
-                System.out.println(firstName + " " + lastName);
+                i += 1; 
+                System.out.printf("[%d] %s %s\n", i, firstName, lastName); 
             }
         } catch (FileNotFoundException e) {
             System.out.println("File Not Found");
