@@ -46,6 +46,8 @@ public class Customer {
                 String firstName = input.nextLine();
                 String lastName = input.nextLine();
                 int employeeID = Integer.parseInt(input.nextLine());
+                input.nextLine();
+                input.nextLine();
                 Employee newEmployee = new Employee(firstName, lastName, employeeID);
                 employees.add(newEmployee);
 
