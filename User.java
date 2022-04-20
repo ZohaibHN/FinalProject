@@ -66,7 +66,7 @@ public class User {
     }
 
 
-    public static void rateEmployee() throws FileNotFoundException {
+    public static void rateEmployee() throws IOException {
         int i = 1;
         Scanner input = new Scanner(System.in);
         
@@ -98,7 +98,14 @@ public class User {
     }
 
     public static void readEmployeeReviews(int ID) {
-        ArrayList<Employee> employees = Employee.getEmployeesFromFile("EmployeeList"); 
+        ArrayList<Employee> employees = null; 
+        try {
+            employees = Employee.getEmployeesFromFile("EmployeeList"); 
+        } catch(IOException e) {
+            e.printStackTrace(); 
+            return; 
+        } 
+
         for(Employee e : employees) {
             if(e.getEmployeeID() == ID) {
                 System.out.printf("Customer reviews for employee #%d:\n", ID); 
@@ -129,11 +136,11 @@ public class User {
               System.out.println("5. Exit");
               int adminNum = input.nextInt();
               switch (adminNum) {
-                  case 1 -> createEmployee();
-                  case 2 -> listEmployees();
-                  case 3 -> readEmployeeReviews(0);
-                  case 4 -> rateEmployee(); //rateEmployees();
-                  case 5 -> System.exit(-1);
+                  case 1: createEmployee(); break;
+                  case 2: listEmployees(); break;
+                  case 3: readEmployeeReviews(0); break;
+                  case 4: rateEmployee(); //rateEmployees(); break;
+                  case 5: System.exit(-1); break;
               }
           }
       }
