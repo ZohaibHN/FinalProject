@@ -108,11 +108,7 @@ public class Main {
             } else if ((userName.equals("employee") || userName.equals("Employee")) && passWord.equals("123456")) {
                 frame.dispose();
                 JOptionPane.showMessageDialog(null, "Access Granted: Welcome Employee");
-                try {
-                    user.employeeMenu();
-                } catch (FileNotFoundException ex) {
-                    throw new RuntimeException(ex);
-                }
+                user.employeeMenu();
             }
             else {
                 JOptionPane.showMessageDialog(null, "Incorrect username/password.");//incorrect username/password
