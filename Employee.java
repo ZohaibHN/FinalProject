@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*; 
 
 public class Employee  {
     private String employeeFName;
@@ -40,6 +41,9 @@ public class Employee  {
     public void addRating(String rating) {
         ratings.add(rating);
     }
+    public ArrayList<String> getReviews() {
+        return ratings; 
+    } 
     
     public static ArrayList<Employee> getEmployeesFromFile(String file) throws FileNotFoundException {
         Scanner sc = new Scanner(file); 
@@ -60,4 +64,20 @@ public class Employee  {
         return e; 
     } 
 
+    public static void writeToFile(String file, ArrayList<Employee> employees) throws IOException {
+        FileWriter fw = new FileWriter(file); 
+        PrintWriter pw = new PrintWriter(new BufferedWriter(fw)); 
+        
+        for(Employee e : employees) {
+            pw.println(e.getEmployeeFName()); 
+            pw.println(e.getEmployeeLName()); 
+            pw.println(e.getEmployeeID()); 
+            pw.println(e.getStarRating()); 
+            
+            ArrayList<String> revs = e.getReviews(); 
+            pw.println(revs.size()); 
+            for(String s : revs) 
+                pw.println(s); 
+        } 
+    } 
 }
