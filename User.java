@@ -138,7 +138,24 @@ public class User {
               switch (adminNum) {
                   case 1: createEmployee(); break;
                   case 2: listEmployees(); break;
-                  case 3: readEmployeeReviews(0); break;
+                  case 3: 
+                      ArrayList<Employees> e = null; 
+                      try {
+                          e = Employees.getEmployeesFromFile("EmployeeList"); 
+                      } catch(IOException e) {
+                          e.printStackTrace(); 
+                          System.exit(-1); 
+                      } 
+                      
+                      for(int i = 0; i < e.size(); i++) {
+                          System.out.printf("[%d] %s %s\n", i + 1, 
+                                            e.get(i).getEmployeeFName(), 
+                                            e.get(i).getEmployeeLName()); 
+                      }
+                      System.out.println("Which employee's reviews do you want to read? "); 
+                      int employeeNum = Integer.parseInt(input.nextLine()); 
+                      readEmployeeReviews(e.get(employeeNum - 1).getEmployeeID()); 
+                      break;
                   case 4: rateEmployee(); //rateEmployees(); break;
                   case 5: System.exit(-1); break;
               }
