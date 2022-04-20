@@ -10,11 +10,15 @@ public class Employee  {
     /**grab all information from the certain employee and make that in a single list instance
      *
      */
-    public Employee(String employeeFName, String employeeLName, int employeeID)  {
+    public Employee(String employeeFName, String employeeLName, int employeeID) {
+        this(employeeFName, employeeLName, employeeID, 0); 
+    } 
+    
+    public Employee(String employeeFName, String employeeLName, int employeeID, int starRating)  {
         this.employeeFName = employeeFName;
         this.employeeLName = employeeLName;
         this.employeeID = employeeID;
-        this.employeeRating = 0;
+        this.employeeRating = starRating; 
     }
 
 
@@ -27,6 +31,9 @@ public class Employee  {
     public int getEmployeeID() {
         return employeeID;
     }
+    public void setStarRating(int rating) {
+        this.employeeRating = rating; 
+    } 
     public void addRating(String rating) {
         ratings.add(rating);
     }
