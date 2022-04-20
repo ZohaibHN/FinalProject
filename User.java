@@ -62,26 +62,16 @@ public class User {
                 Employee newEmployee = new Employee(firstName, lastName, employeeID);
 
                 System.out.println(firstName + " " + lastName);
+                pause(0.25D);
+
             }
+            System.out.println("");
+            pause(0.66D);
         } catch (FileNotFoundException e) {
             System.out.println("File Not Found");
         }
     }
-    public static void updateEmployeeList() {
-        try {
-            Scanner input = new Scanner(new File("EmployeeList"));
-            while (input.hasNextLine()) {
-                String firstName = input.nextLine();
-                String lastName = input.nextLine();
-                int employeeID = Integer.parseInt(input.nextLine());
-                Employee newEmployee = new Employee(firstName, lastName, employeeID);
-                employeeList.add(newEmployee);
-                input.nextLine();
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("File Not Found");
-        }
-    }
+
 
     public static void listEmployeeNames() {
         Scanner employeeNum = new Scanner(System.in);
@@ -129,25 +119,24 @@ public class User {
           while (true) {
               Scanner input = new Scanner(System.in);
               System.out.println("What would you like to do?");
-              pause(1D);
+              pause(0.5D);
               System.out.print(".");
-              pause(1D);
+              pause(0.5D);
               System.out.print(".");
+              pause(0.5D);
               System.out.println();
               System.out.println("1. Create new employee.");
               System.out.println("2. List employees.");
-              System.out.println("3. Update Employee List");
-              System.out.println("4. View Employee Reviews");
-              System.out.println("5. Rate Employees");
-              System.out.println("6. Exit");
+              System.out.println("3. View Employee Reviews");
+              System.out.println("4. Rate Employees");
+              System.out.println("5. Exit");
               int adminNum = input.nextInt();
               switch (adminNum) {
                   case 1 -> createEmployee();
                   case 2 -> listEmployees();
-                  case 3 -> updateEmployeeList();
-                  case 4 -> listEmployeeNames();
-                  case 5 -> listEmployeeNames(); //rateEmployees();
-                  case 6 -> System.exit(-1);
+                  case 3 -> listEmployeeNames();
+                  case 4 -> listEmployeeNames(); //rateEmployees();
+                  case 5 -> System.exit(-1);
               }
           }
       }

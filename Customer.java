@@ -10,7 +10,7 @@ public class Customer {
              BufferedWriter bw = new BufferedWriter(fw);
              PrintWriter out = new PrintWriter(bw)) {
             //new FileWriter("Reviews.txt", false).close();
-            System.out.print("Enter your review: ");
+            System.out.println("Enter your review:");
             String customerReview = reviewInput.nextLine();
             out.println(employees.get(employeeNum - 1).getEmployeeID());
             out.println(customerReview);
@@ -18,13 +18,18 @@ public class Customer {
                     System.out.println("Thank you for your review");
                     System.out.println("Have a good day!");
                     System.out.print("Exiting");
-                    pause(1D);
+                    pause(0.5D);
                     System.out.print(".");
-                    pause(1D);
+                    pause(0.125D);
                     System.out.print(".");
-                    pause(1D);
-                    System.out.println(".");
-                    pause(1D);
+                    pause(0.125D);
+                    System.out.print(".");
+                    pause(0.125D);
+                    System.out.print(".");
+                    pause(0.125D);
+                    System.out.print(".");
+                    pause(0.125D);
+                    System.out.print(".");
                     System.exit(-1);
         } catch (IOException e) {
             //exception handling left as an exercise for the reader
