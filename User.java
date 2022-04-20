@@ -66,7 +66,7 @@ public class User {
     }
 
 
-    public static void rateEmployee() throws IOException {
+    public static void rateEmployee() throws IOException, NumberFormatException {
         int i = 1;
         Scanner input = new Scanner(System.in);
         
@@ -75,8 +75,12 @@ public class User {
             System.out.printf("[%d] %s %s\n", i++, e.getEmployeeFName(), e.getEmployeeLName()); 
         
         System.out.println("Which employee would you like to select?");
-        int numSelection = Integer.parseInt(input.nextLine());
-        
+        int numSelection = 0;
+        try {
+            numSelection = Integer.parseInt(input.nextLine());
+        } catch (NumberFormatException L) {
+            System.out.println();
+        }
         while(numSelection < 1 || numSelection > employees.size()) {
             System.out.println("That's not a valid employee."); 
             System.out.println("Which employee would you like to select?");
@@ -127,7 +131,7 @@ public class User {
         pause(2D);
     }
 
-      public static void adminMenu() throws IOException {
+      public static void adminMenu() throws IOException, InputMismatchException, NumberFormatException {
           while (true) {
               Scanner input = new Scanner(System.in);
               System.out.println("What would you like to do?");
@@ -160,12 +164,23 @@ public class User {
                                             e.get(i).getEmployeeFName(), 
                                             e.get(i).getEmployeeLName()); 
                       }
-                      System.out.println("Which employee's reviews do you want to read? "); 
-                      int employeeNum = Integer.parseInt(input.nextLine()); 
-                      readEmployeeReviews(e.get(employeeNum - 1).getEmployeeID()); 
+                      System.out.println("Which employee's reviews do you want to read? ");
+                      int employeeNum = 0;
+                      try {
+                          employeeNum = Integer.parseInt(input.nextLine());
+                      } catch (InputMismatchException g) {
+                          System.out.print("Enter a valid number, please.");
+                      } catch (NumberFormatException n) {
+                          System.out.print("Enter a valid number.\n");
+                          break;
+                      }
+                          readEmployeeReviews(e.get(employeeNum -1).getEmployeeID());
+
+
                       break;
                   case 4: rateEmployee(); //rateEmployees(); break;
                   case 5: System.exit(-1); break;
+
               }
           }
       }

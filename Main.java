@@ -2,6 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.io.*;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -58,7 +59,7 @@ public class Main {
 
     class CustomerButton implements ActionListener {
         @Override
-        public void actionPerformed(ActionEvent e) {
+        public void actionPerformed(ActionEvent e) throws InputMismatchException {
 
             Scanner input = new Scanner(System.in);
 
@@ -79,8 +80,12 @@ public class Main {
                 System.out.println(".");
                 c1.pause(0.25D);
                 c1.listEmployees();
-                int selectEmployee = input.nextInt();
-                c1.WriteReview(selectEmployee);
+                try {
+                    int selectEmployee = input.nextInt();
+                    c1.WriteReview(selectEmployee);
+                } catch (InputMismatchException L) {
+                    System.out.print("Please enter a valid number for the employee you wish to choose.");
+                }
 
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
