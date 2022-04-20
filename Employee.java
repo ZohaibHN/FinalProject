@@ -72,7 +72,7 @@ public class Employee  {
             pw.println(e.getEmployeeFName()); 
             pw.println(e.getEmployeeLName()); 
             pw.println(e.getEmployeeID()); 
-            pw.println(e.getStarRating()); 
+            pw.println(e.getRating()); 
             
             ArrayList<String> revs = e.getReviews(); 
             pw.println(revs.size()); 
