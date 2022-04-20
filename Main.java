@@ -98,7 +98,11 @@ public class Main {
             if (userName.equals(user.getAdminUsername()) && passWord.equals(user.getAdminPassword())) {
                 frame.dispose();
                 JOptionPane.showMessageDialog(null, "Access Granted: Welcome Admin");//test to make sure button is working
-                user.adminMenu();
+                try {
+                    user.adminMenu();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
 
             } else if ((userName.equals("employee") || userName.equals("Employee")) && passWord.equals("123456")) {
                 frame.dispose();

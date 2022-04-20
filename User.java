@@ -15,32 +15,40 @@ public class User {
     public static String getAdminPassword() {
         return ADMIN_PASSWORD;
     }
+    public static void pause(double waitTime) {
+        try {
+            Thread.sleep((int)(waitTime * 1000.0D));
+        } catch (InterruptedException ignored) {
+        }
 
-    public static void createEmployee() {
+    }
+    //creates a new employee
+    public static void createEmployee() throws IOException {
+        FileWriter fileWriter = new FileWriter("EmployeeList", true);
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        PrintWriter printWriter = new PrintWriter(bufferedWriter);
         Scanner scnr = new Scanner(System.in);
         System.out.println("Enter employee information:\n");
         String inputFName = scnr.nextLine();
         String inputLName = scnr.nextLine();
         int inputID = scnr.nextInt();
-        writeEmployee(inputFName, inputLName, inputID);
+        int inputRating = scnr.nextInt();
 
+        printWriter.println(inputFName);
+        printWriter.println(inputLName);
+        printWriter.println(inputID);
+        printWriter.println(inputRating);
+        printWriter.println("");
+        printWriter.close();
         System.out.println("Employee has been created");
 
+        System.out.print(".");
+        pause(1D);
+        System.out.print(".");
+        pause(1D);
+        System.out.println(".");
+        pause(1D);
 
-    }
-    public static void writeEmployee(String fName, String lName, int id) {
-        try (FileWriter fw = new FileWriter("EmployeeList", true);
-             BufferedWriter bw = new BufferedWriter(fw);
-             PrintWriter out = new PrintWriter(bw)) {
-            //new FileWriter("Reviews.txt", false).close();
-            out.println(fName);
-            out.println(lName);
-            out.println(id);
-            out.println();
-            out.close();
-        } catch (IOException e) {
-            //exception handling left as an exercise for the reader
-        }
     }
     public static void listEmployees() {
         try (FileReader fw = new FileReader("EmployeeList");
@@ -109,10 +117,14 @@ public class User {
 
     }
     //public void menuOptions()
-      public static void adminMenu() {
+      public static void adminMenu() throws IOException {
           while (true) {
               Scanner input = new Scanner(System.in);
               System.out.println("What would you like to do?");
+              pause(1D);
+              System.out.print(".");
+              pause(1D);
+              System.out.print(".");
               System.out.println();
               System.out.println("1. Create new employee.");
               System.out.println("2. List employees.");
