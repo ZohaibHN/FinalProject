@@ -81,5 +81,8 @@ public class Employee  {
             for(String s : revs) 
                 pw.println(s); 
         } 
+
+        pw.flush(); 
+        pw.close(); 
     } 
 }

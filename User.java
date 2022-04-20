@@ -139,11 +139,11 @@ public class User {
                   case 1: createEmployee(); break;
                   case 2: listEmployees(); break;
                   case 3: 
-                      ArrayList<Employee> e = null;
+                      ArrayList<Employee> e = null; 
                       try {
-                          e = Employee.getEmployeesFromFile("EmployeeList");
-                      } catch(IOException f) {
-                          f.printStackTrace();
+                          e = Employee.getEmployeesFromFile("EmployeeList"); 
+                      } catch(IOException ex) {
+                          ex.printStackTrace(); 
                           System.exit(-1); 
                       } 
                       
